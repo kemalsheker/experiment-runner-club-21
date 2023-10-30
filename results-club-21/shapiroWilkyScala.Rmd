@@ -1,0 +1,242 @@
+---
+title: "R Notebook for Sharipo Wilky Scala"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+
+ library(stats) 
+
+
+file_paths <- list(
+  "results/sc-oop/arrayiteration/cpu_averages.txt",
+  "results/sc-oop/bfs/cpu_averages.txt",
+  "results/sc-oop/bubblesort/cpu_averages.txt",
+  "results/sc-oop/dfs/cpu_averages.txt",
+  "results/sc-oop/fib/cpu_averages.txt",
+  "results/sc-oop/filter/cpu_averages.txt",
+  "results/sc-oop/matrix_mul/cpu_averages.txt",
+  "results/sc-oop/merge/cpu_averages.txt"
+)
+
+combined_data_cpu_averages <- NULL  # Initialize an empty data frame or vector
+
+for (file_path in file_paths) {
+  data <- scan(file_path, what = numeric())
+  combined_data_cpu_averages <- c(combined_data_cpu_averages, data)  # Combine data from each file
+}
+
+
+shapiro_test_result_cpu <- shapiro.test(combined_data_cpu_averages)
+
+
+print(shapiro_test_result_cpu)
+
+
+
+file_paths_energy <- list(
+  "results/sc-oop/arrayiteration/energy_totals.txt",
+  "results/sc-oop/bfs/energy_totals.txt",
+  "results/sc-oop/bubblesort/energy_totals.txt",
+  "results/sc-oop/dfs/energy_totals.txt",
+  "results/sc-oop/fib/energy_totals.txt",
+  "results/sc-oop/filter/energy_totals.txt",
+  "results/sc-oop/matrix_mul/energy_totals.txt",
+  "results/sc-oop/merge/energy_totals.txt"
+)
+
+
+combined_data_energy <- NULL  # Initialize an empty data frame or vector
+
+for (file_path in file_paths_energy) {
+  data <- scan(file_path, what = numeric())
+  combined_data_energy <- c(combined_data_energy, data)  # Combine data from each file
+}
+
+
+shapiro_test_result_energy <- shapiro.test(combined_data_energy)
+
+
+print(shapiro_test_result_energy)
+
+
+
+
+file_paths_exec_times <- list(
+  "results/sc-oop/arrayiteration/exec_times.txt",
+  "results/sc-oop/bfs/exec_times.txt",
+  "results/sc-oop/bubblesort/exec_times.txt",
+  "results/sc-oop/dfs/exec_times.txt",
+  "results/sc-oop/fib/exec_times.txt",
+  "results/sc-oop/filter/exec_times.txt",
+  "results/sc-oop/matrix_mul/exec_times.txt",
+  "results/sc-oop/merge/exec_times.txt"
+)
+
+
+combined_data_exec_times <- NULL  # Initialize an empty data frame or vector
+
+for (file_path in file_paths_exec_times) {
+  data <- scan(file_path, what = numeric())
+  combined_data_exec_times <- c(combined_data_exec_times, data)  # Combine data from each file
+}
+
+shapiro_test_result_exec_time <- shapiro.test(combined_data_exec_times)
+
+
+print(shapiro_test_result_exec_time)
+
+
+
+file_paths_mem_averages <- list(
+  "results/sc-oop/arrayiteration/mem_averages.txt",
+  "results/sc-oop/bfs/mem_averages.txt",
+  "results/sc-oop/bubblesort/mem_averages.txt",
+  "results/sc-oop/dfs/mem_averages.txt",
+  "results/sc-oop/fib/mem_averages.txt",
+  "results/sc-oop/filter/mem_averages.txt",
+  "results/sc-oop/matrix_mul/mem_averages.txt",
+  "results/sc-oop/merge/mem_averages.txt"
+)
+
+
+combined_data_mem_averages <- NULL  # Initialize an empty data frame or vector
+
+for (file_path in file_paths_mem_averages) {
+  data <- scan(file_path, what = numeric())
+  combined_data_mem_averages <- c(combined_data_mem_averages, data)  # Combine data from each file
+}
+
+
+
+shapiro_test_result_mem_averages <- shapiro.test(combined_data_mem_averages)
+
+
+print(shapiro_test_result_mem_averages)
+
+
+
+file_paths <- list(
+  "results/sc-fp/arrayiteration/cpu_averages.txt",
+  "results/sc-fp/bfs/cpu_averages.txt",
+  "results/sc-fp/bubblesort/cpu_averages.txt",
+  "results/sc-fp/dfs/cpu_averages.txt",
+  "results/sc-fp/fib/cpu_averages.txt",
+  "results/sc-fp/filter/cpu_averages.txt",
+  "results/sc-fp/matrix_mul/cpu_averages.txt",
+  "results/sc-fp/merge/cpu_averages.txt"
+)
+
+combined_data_cpu_averages_fn <- NULL  # Initialize an empty data frame or vector
+
+for (file_path in file_paths) {
+  data <- scan(file_path, what = numeric())
+  combined_data_cpu_averages_fn <- c(combined_data_cpu_averages_fn, data)  # Combine data from each file
+}
+
+
+
+shapiro_test_result_cpu_averages_fn <- shapiro.test(combined_data_cpu_averages_fn)
+
+
+print(shapiro_test_result_cpu_averages_fn)
+
+
+
+file_paths <- list(
+  "results/sc-fp/arrayiteration/energy_totals.txt",
+  "results/sc-fp/bfs/energy_totals.txt",
+  "results/sc-fp/bubblesort/energy_totals.txt",
+  "results/sc-fp/dfs/energy_totals.txt",
+  "results/sc-fp/fib/energy_totals.txt",
+  "results/sc-fp/filter/energy_totals.txt",
+  "results/sc-fp/matrix_mul/energy_totals.txt",
+  "results/sc-fp/merge/energy_totals.txt"
+)
+
+combined_data_energy_totals_fn <- NULL  # Initialize an empty data frame or vector
+
+for (file_path in file_paths) {
+  data <- scan(file_path, what = numeric())
+  combined_data_energy_totals_fn <- c(combined_data_energy_totals_fn, data)  # Combine data from each file
+}
+
+
+
+shapiro_test_result_energy_totals_fn <- shapiro.test(combined_data_energy_totals_fn)
+
+
+print(shapiro_test_result_energy_totals_fn)
+
+
+
+file_paths <- list(
+  "results/sc-fp/arrayiteration/exec_times.txt",
+  "results/sc-fp/bfs/exec_times.txt",
+  "results/sc-fp/bubblesort/exec_times.txt",
+  "results/sc-fp/dfs/exec_times.txt",
+  "results/sc-fp/fib/exec_times.txt",
+  "results/sc-fp/filter/exec_times.txt",
+  "results/sc-fp/matrix_mul/exec_times.txt",
+  "results/sc-fp/merge/exec_times.txt"
+)
+
+combined_data_exec_times_fn <- NULL  # Initialize an empty data frame or vector
+
+for (file_path in file_paths) {
+  data <- scan(file_path, what = numeric())
+  combined_data_exec_times_fn <- c(combined_data_exec_times_fn, data)  # Combine data from each file
+}
+
+
+
+shapiro_test_result_exec_times_fn <- shapiro.test(combined_data_exec_times_fn)
+
+
+print(shapiro_test_result_exec_times_fn)
+
+
+
+
+
+file_paths <- list(
+  "results/sc-fp/arrayiteration/mem_averages.txt",
+  "results/sc-fp/bfs/mem_averages.txt",
+  "results/sc-fp/bubblesort/mem_averages.txt",
+  "results/sc-fp/dfs/mem_averages.txt",
+  "results/sc-fp/fib/mem_averages.txt",
+  "results/sc-fp/filter/mem_averages.txt",
+  "results/sc-fp/matrix_mul/mem_averages.txt",
+  "results/sc-fp/merge/mem_averages.txt"
+)
+
+combined_data_mem_averages_fn <- NULL  # Initialize an empty data frame or vector
+
+for (file_path in file_paths) {
+  data <- scan(file_path, what = numeric())
+  combined_data_mem_averages_fn <- c(combined_data_mem_averages_fn, data)  # Combine data from each file
+}
+
+
+
+shapiro_test_result_mem_averages_fn <- shapiro.test(combined_data_mem_averages_fn)
+
+
+print(shapiro_test_result_mem_averages_fn)
+
+
+
+
+
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML cosc of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
